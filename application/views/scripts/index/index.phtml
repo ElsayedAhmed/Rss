@@ -1,0 +1,27 @@
+<?php   
+    // echo "<pre >";
+    // var_dump($this->datay[0]);
+    // echo $this->form;
+
+    // echo $this->datay[1]['entries']."\n" ;
+    for ($i=0; $i < count($this->datay); $i++) { 
+       foreach ($this->datay[$i]['entries'] as $item) {
+            // echo "<pre>";
+            // var_dump($item);
+        ?>
+        <div class="container">
+            <a class="btn btn-link" href="<?php echo $item["link"]; ?>"><?php echo $item["title"] . "<br/>"; ?>
+            </a>
+
+            <p><?php $cont = substr ( $item["content"], 0 , 100  );
+            echo  $cont."....<br/>"; ?></p>
+            <p><?php echo $item["dateModified"] . " | "; ?></p>
+            <?php if(isset($item["author"])){ ?>
+                <p><?php echo $item["author"]; ?></p>
+            <?php } ?>
+            <hr>
+        </div>
+        <?php
+}    }
+?>
+<ul>
